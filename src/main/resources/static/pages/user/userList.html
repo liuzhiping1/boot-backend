@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
-	<link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet">
+	<link href="../../video-js-7.5.5/video-js.css" rel="stylesheet">
 </head>
 <body>
 <div>
@@ -67,16 +67,15 @@
 			   controls preload="auto" width="640" height="264"
 			   poster="http://video-js.zencoder.com/oceans-clip.png"
 			   data-setup='{"example_option":true}'>
-			<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
-			<source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
-			<source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+			<source id=videoMP4  src="../../video/test.mp4" type='video/mp4' />
 		</video>
+		<button class="layui-btn layui-btn-sm" id="reload">重载</button>
 	</div>
 </div>
 
 </body>
 </html>
-<script src="//vjs.zencdn.net/4.9/video.js"></script>
+<script src="../../video-js-7.5.5/video.js"></script>
 <script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../../js/jq.js"></script>
 <script type="text/javascript" src="../../js/plugin/datatables/jquery.dataTables.min.js"></script>
@@ -148,6 +147,13 @@
 	$("#searchBt").click(function(){
 		example.ajax.reload();
 	});
-
+	var video = document.getElementById('example_video_1');
+	var source = document.getElementById('videoMP4');
+	$("#reload").click(function() {
+		video.pause()
+		source.setAttribute('src', '../../video/test.mp4');
+		video.load();
+		video.play();
+	});
 	init();
 </script>
