@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+	<link href="../../video-js-7.5.5/video-js.css" rel="stylesheet">
+	<style type="text/css">
+		.video-js .vjs-subtitles{
+			font-family: "lucida grande", "lucida sans unicode", lucida, "Helvetica Neue", helvetica, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+			color: #fc6;
+			font-size: 2em;
+			line-height: 1em;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<header style="height: 100%">
+
+		</header>
+
+		<div>
+			<div class="widget-body no-padding">
+				<video id="example_video_1" class="video-js vjs-default-skin  video-js.vjs-subtitles"
+					   controls preload="auto" width="640" height="264"
+					   poster="http://video-js.zencoder.com/oceans-clip.png"
+					   data-setup='{"example_option":true}'>
+					<source id=videoMP4  src="../../video/test.mp4" type='video/mp4' />
+				</video>
+				<button class="layui-btn layui-btn-sm" id="replay">重新播放</button>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+
+</body>
+</html>
+<script src="../../video-js-7.5.5/video.js"></script>
+<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/jq.js"></script>
+<script type="text/javascript" src="../../js/plugin/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/my/permission.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../js/dict.js"></script>
+<script type="text/javascript">
+	layui.use([ 'layer' ], function() {
+		var layer = layui.layer;
+	});
+
+	var example;
+
+	var video = document.getElementById('example_video_1');
+	var source = document.getElementById('videoMP4');
+	$("#replay").click(function() {
+		video.pause();
+		source.setAttribute('src', '../../video/test.mp4');
+		video.load();
+		video.play();
+	});
+</script>
