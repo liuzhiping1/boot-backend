@@ -325,6 +325,7 @@ INSERT INTO `sys_permission` VALUES ('37', '0', '字典管理', 'fa-reddit', 'pa
 INSERT INTO `sys_permission` VALUES ('38', '37', '查询', '', '', '2', 'dict:query', '100');
 INSERT INTO `sys_permission` VALUES ('39', '37', '新增', '', '', '2', 'dict:add', '100');
 INSERT INTO `sys_permission` VALUES ('40', '37', '删除', '', '', '2', 'dict:del', '100');
+INSERT INTO `sys_permission` VALUES ('41', '0', '视频播放', 'fa-reddit', 'pages/dict/dictList.html', '1', '', '18');
 
 -- ----------------------------
 -- Table structure for sys_role

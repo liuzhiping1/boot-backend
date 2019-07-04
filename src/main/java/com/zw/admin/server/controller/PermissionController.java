@@ -54,7 +54,7 @@ public class PermissionController {
 		List<Permission> list = UserUtil.getCurrentPermissions();
 		if (list == null) {
 			User user = UserUtil.getCurrentUser();
-			list = permissionDao.listByUserId(user.getId());
+			list = permissionDao.listByUserId(user.getId());//这里面用了数据库的内连接，列出该用户的权限，通过内连接用户+用户权限得到的
 			UserUtil.setPermissionSession(list);
 		}
 		final List<Permission> permissions = list.stream().filter(l -> l.getType().equals(1))

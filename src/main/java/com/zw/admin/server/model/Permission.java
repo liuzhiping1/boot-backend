@@ -8,7 +8,7 @@ public class Permission extends BaseEntity<Long> {
 
 	private Long parentId;
 	private String name;
-	private String css;
+	private String css; //定义小图标样式用font awesome样式库里面的样式
 	private String href;
 	private Integer type;
 	private String permission;

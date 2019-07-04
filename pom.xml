@@ -95,7 +95,7 @@
 			<artifactId>druid</artifactId>
 			<version>${druid.version}</version>
 		</dependency>-->
-		<!--改为stater的方式-->
+		<!--改为starter的方式-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid-spring-boot-starter</artifactId>
