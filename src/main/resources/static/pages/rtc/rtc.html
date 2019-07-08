@@ -17,25 +17,23 @@
 	</style>
 </head>
 <body>
-<script type="text/javascript" src="ckplayer/ckplayer/ckplayer.js"></script>
-<div id="video" style="width:600px;height:400px;"></div>
-<script type="text/javascript">
-	var videoObject = {
-		container: '#video',//“#”代表容器的ID，“.”或“”代表容器的class
-		variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
-		flashplayer:false,//如果强制使用flashplayer则设置成true
-		//video:'../../video/test.mp4'//视频地址
-		video:'http://192.168.1.107:8080/live/livestream.flv'
-	};
-	var player=new ckplayer(videoObject);
-</script>
 <div>
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		<header style="height: 100%">
 
 		</header>
 
-
+		<div>
+			<div class="widget-body no-padding">
+				<video id="example_video_1" class="video-js vjs-default-skin  video-js.vjs-subtitles"
+					   controls preload="auto" width="640" height="264"
+					   poster="http://video-js.zencoder.com/oceans-clip.png"
+					   data-setup='{"example_option":true}'>
+					<source id=videoMP4  src="../../video/test.mp4" type='video/mp4' />
+				</video>
+				<button class="layui-btn layui-btn-sm" id="replay">重新播放</button>
+			</div>
+		</div>
 
 
 	</div>
@@ -56,4 +54,14 @@
 		var layer = layui.layer;
 	});
 
+	var example;
+
+	var video = document.getElementById('example_video_1');
+	var source = document.getElementById('videoMP4');
+	$("#replay").click(function() {
+		video.pause();
+		source.setAttribute('src', '../../video/test.mp4');
+		video.load();
+		video.play();
+	});
 </script>
