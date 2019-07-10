@@ -34,7 +34,7 @@ public class SwaggerConfig {
 
 		return new Docket(DocumentationType.SWAGGER_2).groupName("swagger接口文档")
 				.apiInfo(new ApiInfoBuilder().title("swagger接口文档")
-						.contact(new Contact("小威老师", "", "xiaoweijiagou@163.com")).version("1.0").build())
+						.contact(new Contact("liuzhiping", "", "542431620@qq.com")).version("1.0").build())
 				.globalOperationParameters(Lists.newArrayList(builder.build()))
 				.select().paths(PathSelectors.any()).build();
 	}
