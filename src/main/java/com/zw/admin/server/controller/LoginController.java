@@ -39,7 +39,7 @@ public class LoginController {
 	@PostMapping("/sys/login")
 	public void login(String username, String password) {
 		UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
-		SecurityUtils.getSubject().login(usernamePasswordToken);
+		SecurityUtils.getSubject().login(usernamePasswordToken);//身份认证
 		// 设置shiro的session过期时间
 		SecurityUtils.getSubject().getSession().setTimeout(serverProperties.getServlet().getSession().getTimeout().toMillis());
 	}

@@ -36,7 +36,7 @@ public class ShiroConfig {
 
 		// 拦截器.
 		Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
-
+// 匿名访问
 		filterChainDefinitionMap.put("/css/**", "anon");
 		filterChainDefinitionMap.put("/fonts/**", "anon");
 		filterChainDefinitionMap.put("/img/**", "anon");
@@ -45,9 +45,13 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/files/*", "anon");
 		filterChainDefinitionMap.put("/swagger-resources/**", "anon");
 		filterChainDefinitionMap.put("/logout", "logout");
+		// 其他路径均需要身份认证，一般位于最下面，优先级最低
+		//<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
 		filterChainDefinitionMap.put("/**", "authc");
 
+		// 登录的路径
 		shiroFilterFactoryBean.setLoginUrl("/login.html");
+		// 登录成功后跳转的路径
 		shiroFilterFactoryBean.setSuccessUrl("/index.html");
 
 		LogoutFilter logoutFilter = new LogoutFilter();
